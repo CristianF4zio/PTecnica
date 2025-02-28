@@ -1,0 +1,53 @@
+@use '../components/variables' as *;
+
+.swiper-container {
+    width: 100%;
+    height: 100vh; // Ocupa toda la pantalla
+    display: flex;
+    align-items: flex-start; // Alinea las imágenes con el header
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 0;
+    z-index: 1;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+}
+
+.swiper-slide img {
+    position: fixed;  // Fija la imagen en su lugar
+    top: -40px;       // Mueve la imagen 40px hacia arriba, puedes aumentar este valor si es necesario
+    width: 100vw;     // Ocupa todo el ancho de la pantalla
+    height: 120vh;    // Aumenta la altura de la imagen
+    object-fit: cover; // Ajusta la imagen para que cubra toda el área
+    z-index: -1;      // Asegura que la imagen esté detrás del swiper
+}
+
+.swiper-pagination {
+    position: absolute;
+    bottom: 50px; // Ajusta la posición vertical para mover los círculos más abajo
+    left: 50%;  // Centra los círculos horizontalmente
+    transform: translateX(47%); // para que los círculos queden centrados
+    z-index: 10;
+    display: flex;
+    gap: 5px; // Ajusta el espacio entre los círculos
+}
+
+.swiper-pagination .swiper-pagination-bullet {
+    width: 15px;// Aumenta el tamaño de los círculos
+    height: 15px; //umenta el tamaño de los círculos
+    opacity: 1;  // Asegura que los círculos sean completamente opacos
+    border-radius: 50%;  // Asegura que los círculos sean redondos
+    transition: background-color 0.3s ease;  // Añade una transición suave para el cambio de color
+    background-color: white;
+}
+
+.swiper-pagination .swiper-pagination-bullet:hover {
+    background-color: $secondary-color; //ia el color al pasar el mouse (opcional)
+}

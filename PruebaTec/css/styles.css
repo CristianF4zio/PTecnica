@@ -1,0 +1,436 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #001c3a;
+  margin-bottom: 0;
+}
+
+.header__logo img {
+  height: 45px;
+}
+
+.header__logo-container img {
+  height: 45px;
+}
+
+.feature__image {
+  img {
+    width: 250px; /* Define el ancho fijo */
+    height: 250px; /* Define la altura fija */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    object-fit: cover; /* Mantiene la proporción de la imagen dentro del área */
+    margin-top: 30px;
+  }
+}
+
+/* Estilos generales */
+body {
+  font-family: "Outfit", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #ffffff;
+}
+
+.header__logo-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 12px;
+}
+
+.header__nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.header__nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Hero Section */
+.hero {
+  background: url("assets/images/hero-background.jpg") no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+/* About, Services, Contact Sections */
+.about, .services, .contact {
+  padding: 2rem;
+  text-align: center;
+}
+
+.about h2, .services h2, .contact h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.about p, .services p, .contact p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Sección de Features (Servicios) */
+.features {
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Diseño responsivo para varias columnas */
+  gap: 2rem;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left; /* Cambio a alineación izquierda */
+}
+
+.feature__image img {
+  width: 250px; /* Define el ancho fijo */
+  height: 250px; /* Define la altura fija */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  object-fit: cover; /* Mantiene la proporción de la imagen dentro del área */
+  margin-top: 30px;
+  transform: translateX(25px);
+}
+  
+
+.feature__content {
+  h2 {
+    font-size: 1.8rem;  /* Tamaño más pequeño */
+    color: #001c3a;     /* Color azul del degradado */
+    margin-bottom: 1rem;
+    text-align: left; /* Alineación a la izquierda */
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: #000000;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 768px) {
+  .features {
+    grid-template-columns: 1fr; /* En pantallas pequeñas, mostrar una columna */
+  }
+}
+
+/* Swiper Section */
+.swiper-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 0;
+  z-index: 1;
+}
+
+.swiper-slide {
+  position: relative; /* Asegura que el pseudo-elemento se aplique correctamente sobre las imágenes */
+  width: 100%; /* Asegura que el slide tenga un tamaño del 100% */
+  height: 100%; /* Asegura que el slide ocupe toda la altura del contenedor */
+}
+
+.swiper-container::before {
+  transform: translateX(-3%); /* Mueve el degradado un 3% hacia la izquierda */
+  content: "";
+  position: absolute;
+  top: -6%; /* Desplaza el degradado ligeramente hacia arriba */
+  left: 0;
+  width: 100%; /* El degradado cubre el 100% del ancho */
+  height: 120.6%; /* Aumenta la altura para cubrir más área que el 100% */
+  background: linear-gradient(to right, #001c3a 10%, transparent);/* Degradado azul muy oscuro a transparente */
+  z-index: 2; /* El degradado está por encima de las imágenes */
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
+
+.swiper-slide img {
+  position: fixed;
+  top: -40px;
+  width: 100vw;
+  height: 120vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.swiper-pagination {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(47%);
+  z-index: 10;
+  display: flex;
+  gap: 5px;
+}
+
+.swiper-pagination .swiper-pagination-bullet {
+  width: 15px;
+  height: 15px;
+  opacity: 1;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  background-color: rgb(255, 255, 255);
+}
+
+.swiper-pagination .swiper-pagination-bullet:hover {
+  background-color: #001c3a;
+}
+
+/* Mensaje animado en la esquina inferior izquierda */
+.message {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: fadeIn 1s forwards, slideIn 1s forwards;
+  white-space: pre-line;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.welcome-message {
+  position: absolute;
+  top: 100px;  /* Ajusta esta propiedad para que el mensaje esté más abajo */
+  right: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #ffffff;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(-100%);
+  animation: fadeIn 1s forwards, slideIn 1s forwards;
+}
+
+/* Animación de deslizamiento y fade */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(100%); /* Empuja el mensaje fuera de la vista inicialmente */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* El mensaje se desliza hacia arriba */
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    left: -200px; /* El mensaje comienza desde fuera de la pantalla */
+  }
+  100% {
+    left: 20px; /* El mensaje se desliza hasta la posición deseada */
+  }
+}
+
+/* Estilos del Contacto */
+.contact {
+  padding: 2rem;
+  text-align: left; /* Alinea todo el texto a la izquierda */
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: left; /* Alinea el título a la izquierda */
+}
+
+.contact #contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+}
+
+.contact #contact-form input,
+.contact #contact-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: "Outfit", sans-serif;
+  width: 100%; /* Asegura que los campos ocupen el 100% de su contenedor */
+  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+}
+
+.contact #contact-form button {
+  background-color: #e2001a;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin: 1rem 0;
+}
+
+.contact #contact-form button:hover {
+  background-color: rgb(175, 0, 20.1327433628);
+}
+
+.contact #thank-you-message {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #e2001a;
+  display: none;
+}
+
+.contact #thank-you-message.visible {
+  display: block;
+}
+
+/* Asegura que todo el contenido esté alineado a la izquierda */
+.contact p {
+  text-align: left; /* Alinea el párrafo a la izquierda */
+  font-size: 0.8rem;
+  margin: 1rem 0;
+}
+
+
+
+/* Estilo del body */
+body {
+  font-family: "Outfit", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #001c3a;
+  background-color: white;
+}
+
+/* Rectángulo azul debajo de las imágenes */
+.feature__separator {
+  width: 100%;
+  height: 10px; /* Ajusta la altura según lo desees */
+  background-color: #001c3a; /* Color azul */
+  margin-top: 1.5rem; /* Separación del contenido */
+}
+
+.separator {
+  position: relative;
+  width: 100%;
+  height: 300px; /* Ajusta la altura del separador */
+  background-color: #001c3a; /* Color de fondo */
+  margin-bottom: 0; /* Elimina el margen inferior */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  
+}
+
+.separator-image {
+  position: absolute;
+  top: 50%; /* Centra la imagen verticalmente */
+  left: 50%; /* Centra la imagen horizontalmente */
+  transform: translate(-50%, -50%); /* Ajusta para que la imagen esté perfectamente centrada */
+  width: 23%; /* Imagen más pequeña */
+  max-width: 400px; /* Puedes ajustar este valor */
+  size: 100px;
+}
+
+.separator-text {
+  position: absolute;
+  top: 50%; /* Coloca el texto en el centro verticalmente */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+  top: 65%;
+}
+
+.separator-background-text {
+  font-size: 1.5rem; /* Mismo tamaño de fuente que el título del separador azul */
+  font-weight: bold; /* Igual al separador azul */
+  color: #001c3a;
+  text-transform: uppercase; /* Igual al separador azul */
+  letter-spacing: 2px; /* Ajusta el espaciado de las letras si es necesario */
+  position: relative;
+  top: 85px; /* Ajusta este valor para mover el texto hacia arriba */
+}
+
+.separator-background {
+  width: 100%;
+  height: 600px; /* Ajusta la altura del fondo rojo según lo necesites */
+  background: linear-gradient(to top, #e2001a 10%, transparent);
+  display: flex;
+  justify-content: center; /* Centra las imágenes horizontalmente */
+  align-items: center; /* Centra las imágenes verticalmente */
+  flex-wrap: wrap; /* Permite que las imágenes se ajusten si no caben en una línea */
+}
+
+.separator-background-images {
+  display: flex;
+  justify-content: space-around; /* Distribuye las imágenes con espacio entre ellas */
+  flex-wrap: wrap; /* Permite que las imágenes se ajusten a una nueva fila si no hay espacio */
+  gap: 30px; /* Espacio entre las imágenes */
+  max-width: 100%; /* Asegura que no haya desbordamiento */
+}
+
+.separator-background-images img {
+  width: 30%; /* Ajusta el tamaño de las imágenes */
+  max-width: 190px; /* Ajusta el tamaño máximo de las imágenes */
+  height: auto;
+}
+
+.contact-side-content {
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-end; /* Alinea todo a la derecha */
+  align-items: center; /* Alinea verticalmente al centro */
+  margin-top: 2rem;
+  position: absolute; /* Posiciona de forma absoluta en la parte superior */
+  right: 20px; /* Ajusta el margen derecho */
+  top: 6%; /* Coloca el contenido al nivel del título */
+}
+html, body {
+  overflow-x: hidden; /* Desactiva el desplazamiento horizontal */
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

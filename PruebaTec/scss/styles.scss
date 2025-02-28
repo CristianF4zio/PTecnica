@@ -1,0 +1,14 @@
+@use 'components/variables' as *;
+@use 'components/header';
+@use 'components/hero';
+@use 'components/services';
+@use 'components/contact';
+
+body {
+    font-family: $font-family;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: $text-color;
+    background-color: $background-color;
+}

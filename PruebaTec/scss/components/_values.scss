@@ -1,0 +1,28 @@
+@use '../components/variables' as *;
+
+.values {
+    padding: 2rem;
+    text-align: center;
+    background-color: #f9f9f9; // Fondo claro para resaltar la sección
+
+    .value {
+        margin-bottom: 2rem;
+
+        h2 {
+            font-size: 2rem;
+            color: #333; // Color oscuro para los títulos
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #666; // Color gris para el texto
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        strong {
+            color: #ff0000; // Destacar texto en negrita con color rojo
+        }
+    }
+}

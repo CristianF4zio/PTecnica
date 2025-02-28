@@ -1,0 +1,71 @@
+@use '../components/variables' as *;
+
+.features {
+    padding: 4rem 2rem;
+    
+    .feature {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        margin-bottom: 6rem;
+
+        &:nth-child(even) {
+            direction: rtl; // Alternar posición de imagen/texto
+        }
+
+        &__image {
+            img {
+                width: 100%;
+                max-width: 250px; /* Tamaño reducido para las imágenes */
+                height: auto;
+                border-radius: 15px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                object-fit: cover; /* Asegura que la imagen se ajuste sin deformarse */
+            }
+        }
+
+        &__content {
+            text-align: left;
+            
+            h2 {
+                font-size: 2.5rem;
+                color: #333;
+                line-height: 1.2;
+                margin-bottom: 1.5rem;
+
+                span {
+                    color: #ff0000;
+                    font-weight: 400;
+                }
+            }
+
+            p {
+                font-size: 1.1rem;
+                color: #666;
+                line-height: 1.6;
+                max-width: 500px;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .feature {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            text-align: center;
+
+            &:nth-child(even) {
+                direction: ltr;
+            }
+
+            &__content {
+                text-align: center;
+                
+                h2 {
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+}

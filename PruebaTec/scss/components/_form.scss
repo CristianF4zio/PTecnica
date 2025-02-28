@@ -1,0 +1,18 @@
+// components/form.scss
+@use '../components/variables' as *;
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    input, textarea {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        align-self: center;
+    }
+}
